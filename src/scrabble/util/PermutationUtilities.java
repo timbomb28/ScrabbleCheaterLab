@@ -1,15 +1,8 @@
 package scrabble.util;
 
-import java.util.Arrays;
 import java.util.Set;
 
 public class PermutationUtilities {
-
-	public static String normalize(String word) {
-		byte[] b = word.getBytes();
-		Arrays.sort(b);
-		return new String(b);
-	}
 
 	/**
 	 * creates a set with all subsets of the input string
