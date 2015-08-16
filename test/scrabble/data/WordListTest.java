@@ -78,13 +78,13 @@ public class WordListTest {
 
 	@Test
 	public void shouldReturnCorrectAmountOfPermutations() {
-		assertEquals(message, permutationCount, wl.permutations(tileRack)
+		assertEquals(message, permutationCount, wl.validWordsUsingAllTiles(tileRack)
 				.size());
 	}
 
 	@Test
 	public void shouldReturnCorrectNumberOfSuggestions() {
-		assertEquals(message, wordSuggestionCount, wl.words(tileRack).size());
+		assertEquals(message, wordSuggestionCount, wl.allValidWords(tileRack).size());
 	}
 
 }

@@ -6,13 +6,13 @@ import java.util.Set;
 public class SimpleWordList implements WordList {
 
 	@Override
-	public Set<String> permutations(String tileRackPart) {
+	public Set<String> validWordsUsingAllTiles(String tileRackPart) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Set<String> words(String tileRack) {
+	public Set<String> allValidWords(String tileRack) {
 		// TODO Auto-generated method stub
 		return null;
 	}
