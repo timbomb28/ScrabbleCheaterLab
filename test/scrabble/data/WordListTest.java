@@ -82,7 +82,10 @@ public class WordListTest {
 				.size());
 	}
 
-	@Test
+	/**
+	 * This is Part of the Deluxe Version
+	 */
+	@Ignore
 	public void shouldReturnCorrectNumberOfSuggestions() {
 		assertEquals(message, wordSuggestionCount, wl.allValidWords(tileRack).size());
 	}

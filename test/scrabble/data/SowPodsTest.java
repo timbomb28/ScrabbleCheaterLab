@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -137,8 +138,10 @@ public class SowPodsTest {
 		assertEquals(tileRack, new HashSet<String>(Arrays.asList(permutations)),
 				actual);
 	}
-
-	@Test
+	/**
+	 * This is Part of the Deluxe Version
+	 */
+	@Ignore
 	public void shouldReturnCorrectSuggestions() {
 		Set<String> actual = wl.allValidWords(tileRack);
 		// assertEquals(message, validSuggestions.length,
