@@ -36,8 +36,8 @@ public class PermutationTest {
 
 	@Test
 	public void testEquals1() {
-		assertTrue((new Permutation("aaabbrr")).equals(new Permutation(
-				"barbara")));
+		assertTrue((new Permutation("abenr")).equals(new Permutation(
+				"barne")));
 	}
 
 	@Test
