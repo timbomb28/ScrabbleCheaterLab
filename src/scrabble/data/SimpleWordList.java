@@ -37,8 +37,8 @@ public class SimpleWordList implements WordList {
 
 	@Override
 	public WordList initFromFile(String fileName) {
+		return new SimpleWordList();
 		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

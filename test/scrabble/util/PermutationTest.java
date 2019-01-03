@@ -44,10 +44,13 @@ public class PermutationTest {
 	public void testEquals2() {
 		assertTrue(new Permutation("berlin").equals(new Permutation("linber")));
 	}
+	
 	@Test
 	public void testEqual3() {
 		assertFalse(new Permutation("berlin").equals(new Permutation("linper")));
 	}
+	
+	@SuppressWarnings("unlikely-arg-type")
 	@Test
 	public void testEqualsOtherType() {
 		assertFalse(new Permutation("berlin").equals(new Integer(42)));
@@ -55,7 +58,8 @@ public class PermutationTest {
 
 	@Test
 	public void testToString() {
-		assertEquals("bca / abc", (new Permutation("bca")).toString());
+		// you may change this if you prefer another string representation of your Permutation
+		assertEquals("[abc] bca", (new Permutation("bca")).toString());
 	}
 
 	@Test
@@ -63,16 +67,4 @@ public class PermutationTest {
 		assertEquals("a", (new Permutation("a")).getNormalized());
 	}
 
-	@Test
-	public void hashCodeForPermutationsShouldBeTheSame() {
-		for (int i = 0; i < 1000; i++) {
-			String p1 = PermutationUtilities.createPermutation(7);
-			String p2 = PermutationUtilities.createPermutation(p1);
-			Permutation pp1 = new Permutation(p1);
-			Permutation pp2 = new Permutation(p2);
-			assertEquals(pp1.hashCode(), pp2.hashCode());
-			// System.out.println(pp1.hashCode());
-			assertEquals(pp1, pp2);
-		}
-	}
 }

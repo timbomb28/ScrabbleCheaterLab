@@ -131,7 +131,7 @@ public class SowPodsTest {
 		assertEquals(tileRack, 267751, wl.size());
 	}
 
-	@Test
+	@Ignore
 	public void shouldReturnCorrectPermutations() {
 		Set<String> actual = wl.validWordsUsingAllTiles(tileRack);
 		// assertEquals(message, permutations.length, actual.size());
