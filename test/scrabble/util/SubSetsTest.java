@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.junit.Ignore;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
@@ -41,6 +42,11 @@ public class SubSetsTest {
 	public void testComputeSubSets() {
 		Set<String> actual = SubSets.getSubSets(str);
 		assertEquals(expected, actual);
+	}
+	@Test
+	public void testNothing() {
+		// just to avoid to get the No runnable methods error, can be deleted
+		// if the @Ignore above is changed to @Test
 	}
 
 }
