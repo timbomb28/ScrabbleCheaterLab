@@ -1,23 +1,21 @@
 package scrabble.data;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
-import org.junit.BeforeClass;
-import org.junit.Ignore;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
-@RunWith(Parameterized.class)
+
 public class SowPodsTest {
 
-	@Parameters
 	public static Collection<Object[]> data() {
 		Object[][] data = new Object[][] {
 				{
@@ -121,33 +119,39 @@ public class SowPodsTest {
 		this.tileRack = tileRack;
 	}
 
-	@BeforeClass
+	@BeforeAll
 	public static void createWordList() {
 		wl = new SimpleWordList().initFromFile("wordlists/sowpods.txt");
 	}
 
-	@Test
-	public void sizeShouldGiveTotalNumberOfStoredWords() {
-		assertEquals(tileRack, 267751, wl.size());
+	@ParameterizedTest
+	@MethodSource("data")
+	public void sizeShouldGiveTotalNumberOfStoredWords(String tileRack, String[] permutations,
+													   String[] validSuggestions) {
+		assertEquals(267751, wl.size(), tileRack);
 	}
 
-	@Ignore
-	public void shouldReturnCorrectPermutations() {
+	// Ignore
+	public void shouldReturnCorrectPermutations(String tileRack, String[] permutations,
+												String[] validSuggestions) {
 		Set<String> actual = wl.validWordsUsingAllTiles(tileRack);
 		// assertEquals(message, permutations.length, actual.size());
-		assertEquals(tileRack, new HashSet<String>(Arrays.asList(permutations)),
-				actual);
+		List<Integer> permutationsList =
+				Arrays.stream(permutations).map(i->new Integer(i)).collect(Collectors.toList());
+		;
+		assertEquals( new HashSet<String>(permutationsList.size()),
+				actual, tileRack);
 	}
 	/**
 	 * This is Part of the Deluxe Version
 	 */
-	@Ignore
+	//@Ignore
 	public void shouldReturnCorrectSuggestions() {
 		Set<String> actual = wl.allValidWords(tileRack);
 		// assertEquals(message, validSuggestions.length,
 		// wl.words(tileRack).size());
-		assertEquals(tileRack,
-				new HashSet<String>(Arrays.asList(validSuggestions)), actual);
+		assertEquals(
+				new HashSet<String>(Arrays.asList(validSuggestions)), actual, tileRack);
 	}
 
 }

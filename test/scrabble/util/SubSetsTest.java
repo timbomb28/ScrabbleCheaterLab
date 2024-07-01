@@ -1,21 +1,19 @@
 package scrabble.util;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.junit.Ignore;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@RunWith(Parameterized.class)
+
 public class SubSetsTest {
-	@Parameters
+
 	public static Collection<Object[]> data() {
 		return Arrays.asList(new Object[][] {
 				{ "a", new String[] {} },
@@ -38,13 +36,14 @@ public class SubSetsTest {
 		this.expected = new HashSet<String>(Arrays.asList(list));
 	}
 
-	@Ignore
-	public void testComputeSubSets() {
+	//@Ignore
+	public void testComputeSubSets(String str, String[] list) {
 		Set<String> actual = SubSets.getSubSets(str);
 		assertEquals(expected, actual);
 	}
-	@Test
-	public void testNothing() {
+	@ParameterizedTest
+	@MethodSource("data")
+	public void testNothing(String str, String[] list) {
 		// just to avoid to get the No runnable methods error, can be deleted
 		// if the @Ignore above is changed to @Test
 	}
