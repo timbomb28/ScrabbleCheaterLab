@@ -1,21 +1,23 @@
 package scrabble.util;
-
-
 public class Permutation {
 
+	private final String word;
+
 	public Permutation(String word) {
+		this.word = word.toUpperCase(); // optional: normalize to uppercase
 	}
 
 	@Override
 	public int hashCode() {
-		// TBD: implement this method
-		return 0;
+		return getNormalized().hashCode();
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		//TBD: Implement equals method
-		return false;
+		if (this == obj) return true;
+		if (obj == null || getClass() != obj.getClass()) return false;
+		Permutation that = (Permutation) obj;
+		return this.getNormalized().equals(that.getNormalized());
 	}
 
 	@Override
@@ -24,18 +26,17 @@ public class Permutation {
 	}
 
 	public String getNormalized() {
-		// TBD: implement this method
-		return null;
+		char[] chars = word.toCharArray();
+		java.util.Arrays.sort(chars);
+		return new String(chars);
 	}
 
 	public String getWord() {
-		// TBD: implement this method
-		return null;
+		return word;
 	}
 
 	public int length() {
-		// TBD: implement this method
-		return 0;
+		return word.length();
 	}
 
 }
