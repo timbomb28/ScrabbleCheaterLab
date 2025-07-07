@@ -14,7 +14,7 @@ public class TimeRaceGUI {
 
     private static ImageIcon racingGif;
 
-    // Helper method to safely load a GIF resource
+
     private static ImageIcon loadGif(String path) {
         java.net.URL url = TimeRaceGUI.class.getResource(path);
         return (url != null) ? new ImageIcon(url) : null;

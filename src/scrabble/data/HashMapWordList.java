@@ -78,7 +78,7 @@ public class HashMapWordList implements WordList {
             for (String word : results) {
                 System.out.println(word);
             }
-            System.out.println(); // Extra line for readability
+            System.out.println();
         }
     }
 }
